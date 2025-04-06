@@ -13,15 +13,6 @@ A full-featured cross-platform notes application built with React Native and Exp
 - **Private Notes** - Notes are private to authenticated users
 - **Cross-Platform** - Works on iOS, Android, and Web
 
-## 📱 Screenshots
-
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-  <!-- Replace these with your actual screenshots -->
-  <img src="screenshots/home-screen.png" alt="Home Screen" width="300"/>
-  <img src="screenshots/add-note.png" alt="Add Note" width="300"/>
-  <img src="screenshots/note-details.png" alt="Note Details" width="300"/>
-  <img src="screenshots/auth-screen.png" alt="Authentication" width="300"/>
-</div>
 
 ## 🚀 Getting Started
 
