@@ -1,50 +1,177 @@
-# Welcome to your Expo app 👋
+# 📝 Notes App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A full-featured cross-platform notes application built with React Native and Expo, allowing users to create, read, update, and delete notes with Appwrite as the backend.
 
-## Get started
+![Notes App](./assets/images/screen.png)
 
-1. Install dependencies
+## ✨ Features
 
+- **User Authentication** - Sign up, sign in, and sign out functionality
+- **Create Notes** - Add new notes with titles and descriptions
+- **Update Notes** - Edit existing notes
+- **Delete Notes** - Remove unwanted notes
+- **Private Notes** - Notes are private to authenticated users
+- **Cross-Platform** - Works on iOS, Android, and Web
+
+## 📱 Screenshots
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+  <!-- Replace these with your actual screenshots -->
+  <img src="screenshots/home-screen.png" alt="Home Screen" width="300"/>
+  <img src="screenshots/add-note.png" alt="Add Note" width="300"/>
+  <img src="screenshots/note-details.png" alt="Note Details" width="300"/>
+  <img src="screenshots/auth-screen.png" alt="Authentication" width="300"/>
+</div>
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v14 or newer)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [Expo CLI](https://docs.expo.dev/workflow/expo-cli/)
+- [Appwrite Account](https://appwrite.io/)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/notes-app.git
+   cd notes-app
+   ```
+
+2. Install dependencies:
    ```bash
    npm install
+   # or
+   yarn install
    ```
 
-2. Start the app
+3. Set up environment variables:
+   - Rename `.env.example` to `.env`
+   - Fill in your Appwrite project details:
+     ```
+     APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+     APPWRITE_PROJECT_ID=your-project-id
+     APPWRITE_DATABASE_ID=your-database-id
+     APPWRITE_COLLECTION_ID=your-collection-id
+     ```
 
-   ```bash
-    npx expo start
-   ```
+### Setting up Appwrite
 
-In the output, you'll find options to open the app in a
+1. [Sign up for Appwrite](https://apwr.dev/traversyfeb2025)
+2. Create a new project
+3. Create a new database
+4. Create a new collection for notes with the following attributes:
+   - `title` (string)
+   - `content` (string)
+   - `userId` (string)
+   - `createdAt` (datetime)
+   - `updatedAt` (datetime)
+5. Set up authentication methods (email/password)
+6. Update your `.env` file with the appropriate IDs
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🏃‍♂️ Running the App
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Start the development server:
 
 ```bash
-npm run reset-project
+npm start
+# or
+yarn start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+You can then run the app:
 
-## Learn more
+- **iOS Simulator**: Press `i` in the terminal or `npm run ios`
+- **Android Emulator**: Press `a` in the terminal or `npm run android`
+- **Web Browser**: Press `w` in the terminal or `npm run web`
+- **Physical Device**: Scan the QR code with the Expo Go app
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📦 Building for Production
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Using Expo Application Services (EAS)
 
-## Join the community
+1. Install EAS CLI:
+   ```bash
+   npm install -g eas-cli
+   ```
 
-Join our community of developers creating universal apps.
+2. Log in to your Expo account:
+   ```bash
+   eas login
+   ```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+3. Configure the build:
+   ```bash
+   eas init
+   ```
+
+4. Build for Android:
+   ```bash
+   eas build --platform android
+   ```
+
+5. Build for iOS:
+   ```bash
+   eas build --platform ios
+   ```
+
+## 🧩 Project Structure
+
+```
+notes-app/
+├── app/                 # Expo Router app directory
+│   ├── auth/            # Authentication screens
+│   ├── notes/           # Notes screens
+│   ├── _layout.jsx      # Layout components
+│   └── index.jsx        # Entry point
+├── assets/              # Images, fonts, and other static files
+├── components/          # Reusable components
+│   ├── AddNoteModal.jsx # Modal for adding notes
+│   ├── NoteItem.jsx     # Individual note component
+│   └── NoteList.jsx     # List of notes component
+├── contexts/            # React Context providers
+│   └── AuthContext.js   # Authentication context
+├── services/            # API services
+│   ├── appwrite.js      # Appwrite configuration
+│   ├── authService.js   # Authentication service
+│   ├── databaseService.js # Database service
+│   └── noteService.js   # Notes API service
+└── .env                 # Environment variables
+```
+
+## 🛠️ Tech Stack
+
+- [React Native](https://reactnative.dev/) - Mobile app framework
+- [Expo](https://expo.dev/) - React Native toolchain
+- [Expo Router](https://docs.expo.dev/router/introduction/) - Navigation
+- [Appwrite](https://appwrite.io/) - Backend as a Service
+- [React Native Appwrite](https://github.com/appwrite/sdk-for-react-native) - Appwrite SDK for React Native
+
+## 🧪 Testing
+
+Run tests with Jest:
+
+```bash
+npm test
+```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👨‍💻 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 🙏 Acknowledgements
+
+- [Expo](https://expo.dev/)
+- [Appwrite](https://appwrite.io/)
+- [React Native](https://reactnative.dev/)
+- [Traversy Media](https://traversymedia.com/) for the React Native Mini-Course
